@@ -2,9 +2,9 @@ Salus::Application.routes.draw do
 
   devise_for :users
 
-  root to: "pages#home"
-
   get 'about' => 'pages#about'
+
+  root to: "pages#home"
   # devise_for :users
   # match 'users/:id' => 'users#show', as: :user
 
