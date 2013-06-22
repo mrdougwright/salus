@@ -11,5 +11,5 @@ class User < ActiveRecord::Base
          :first_name, :last_name, :date_of_birth, 
          :gender, :height, :weight, :ethnicity
 
-  # attr_accessible :title, :body
+  has_many :med_records
 end

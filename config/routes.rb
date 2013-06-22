@@ -1,5 +1,8 @@
 Salus::Application.routes.draw do
 
+  resources :med_records
+
+
   devise_for :users
 
   get 'about' => 'pages#about'
