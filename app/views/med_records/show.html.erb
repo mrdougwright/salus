@@ -2,9 +2,13 @@
   <div class="span6 offset3">
     <div class="well">
       <p><b>Abdominal</b></p>
-        <div class="well" style="background-color:gray"><%= @med_record.abdominal %></div>
+        <div class="well" style="background-color:white"><%= @med_record.abdominal %></div>
         <%= @med_record.user.first_name %>
-        <div class="pull-right"><%= link_to 'Edit', edit_med_record_path(@med_record) %></div>
+        <div class="pull-right">
+          <% if current_user == @med_record.user %>
+            <%= link_to 'Edit', edit_med_record_path(@med_record) %>
+          <% end %>
+        </div>
     </div>
   </div>
 </div>

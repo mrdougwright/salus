@@ -4,4 +4,5 @@ class MedRecord < ActiveRecord::Base
   validates :abdominal, presence: true
   
   belongs_to :user
+  validates :user_id, presence: true
 end

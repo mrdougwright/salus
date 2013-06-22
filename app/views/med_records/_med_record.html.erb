@@ -1,6 +1,9 @@
 <tr>
 	<td><%= med_record.abdominal %></td>
 	<td><%= link_to 'Show', med_record %></td>
-	<td><%= link_to 'Edit', edit_med_record_path(med_record) %></td>
-	<td><%= link_to 'Destroy', med_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+  <% if current_user == med_record.user %>
+    <td><%= link_to 'Edit', edit_med_record_path(med_record) %></td>
+    <td><%= link_to 'Destroy', med_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
 </tr>
