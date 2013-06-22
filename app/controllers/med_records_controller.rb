@@ -9,6 +9,7 @@ class MedRecordsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @med_records }
+      format.js
     end
   end
 
