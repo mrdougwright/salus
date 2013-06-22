@@ -2,12 +2,11 @@ Salus::Application.routes.draw do
 
   resources :med_records
 
-
   devise_for :users
 
   get 'about' => 'pages#about'
 
-  root to: "pages#home"
+  root to: "med_records#index"
   # devise_for :users
   # match 'users/:id' => 'users#show', as: :user
 
