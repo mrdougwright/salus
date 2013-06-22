@@ -1,8 +1,10 @@
 class MedRecordsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index] #need to be logged in, except on index page
+
   # GET /med_records
   # GET /med_records.json
   def index
-    @med_records = MedRecord.all
+    @med_records = MedRecord.all # make current_user.all to keep records showing only for current_user logged in.
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,7 +26,7 @@ class MedRecordsController < ApplicationController
   # GET /med_records/new
   # GET /med_records/new.json
   def new
-    @med_record = MedRecord.new
+    @med_record = current_user.med_records.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +36,13 @@ class MedRecordsController < ApplicationController
 
   # GET /med_records/1/edit
   def edit
-    @med_record = MedRecord.find(params[:id])
+    @med_record = current_user.med_records.find(params[:id])
   end
 
   # POST /med_records
   # POST /med_records.json
   def create
-    @med_record = MedRecord.new(params[:med_record])
+    @med_record = current_user.med_records.new(params[:med_record])
 
     respond_to do |format|
       if @med_record.save
@@ -56,7 +58,7 @@ class MedRecordsController < ApplicationController
   # PUT /med_records/1
   # PUT /med_records/1.json
   def update
-    @med_record = MedRecord.find(params[:id])
+    @med_record = current_user.med_records.find(params[:id])
 
     respond_to do |format|
       if @med_record.update_attributes(params[:med_record])
@@ -72,7 +74,7 @@ class MedRecordsController < ApplicationController
   # DELETE /med_records/1
   # DELETE /med_records/1.json
   def destroy
-    @med_record = MedRecord.find(params[:id])
+    @med_record = current_user.med_records.find(params[:id])
     @med_record.destroy
 
     respond_to do |format|
