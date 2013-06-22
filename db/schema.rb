@@ -11,13 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130622080240) do
+ActiveRecord::Schema.define(:version => 20130622202109) do
 
   create_table "med_records", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "abdominal"
     t.integer  "user_id"
+    t.string   "skin"
+    t.string   "face"
+    t.string   "heart"
+    t.string   "sexual_organs"
+    t.string   "joints"
+    t.string   "lungs"
+    t.string   "eyes"
+    t.string   "nervous_system"
   end
 
   add_index "med_records", ["user_id"], :name => "index_med_records_on_user_id"

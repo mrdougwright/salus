@@ -1,8 +1,14 @@
 <div class="row">
   <div class="span6 offset3">
     <div class="well">
-      <p><b>Abdominal</b></p>
-        <div class="well" style="background-color:white"><%= @med_record.abdominal %></div>
+      <p><b>Medical History</b></p>
+        <div class="well" style="background-color:white">
+
+          <% @med_record.attributes.each do |x,y| %>
+          <%= "#{x}: #{y}" %><br />
+          <% end %>
+
+        </div>
         <%= @med_record.user.first_name %>
         <div class="pull-right">
           <% if current_user == @med_record.user %>

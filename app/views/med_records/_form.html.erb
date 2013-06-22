@@ -2,7 +2,19 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :abdominal, as: :string %>
+    <%= f.input :abdominal, collection: [:abdomen, :liver, :spleen, :kidneys, :anus, :rectum, :stool] %>
+    <%= f.input :skin, collection: [:rash, :mark, :mole, :removal] %>
+    <%= f.input :face, collection: [:ear, :nose, :throat, :head, :mouth, "salivary glands", "thyroid gland", "cervical nodes"] %>
+    <%= f.input :heart, collection: [:pulse, "neck veins", :precardium, "suprasternal notch", "heart auscultation", :edema] %>
+    <% if current_user.gender == "female" %>  
+      <%= f.input :sexual_organs, collection: [:cervix, "pap smear", :vagina, "bimanual exam", "rectovaginal exam", :breast, "axillary nodes", "inguinal nodes", "female genitalia"] %>
+    <% else %>
+      <%= f.input :sexual_organs, collection: ["axillary nodes", "inguinal nodes", :penis, :scrotum] %>
+    <% end %>
+    <%= f.input :joints, collection: [:neck, :arms, :leg, :spine] %>
+    <%= f.input :lungs, collection: ["respiratory rate", "trachea position", "chest observation", "chest expansion", "voice transmission", "chest percussion", "lung auscultation"] %>
+    <%= f.input :eyes, collection: ["external examination", :conjunctivae, "visual acuity", "papillary reaction", "visual field", "eye muscles", "internal examination"] %>
+    <%= f.input :nervous_system, collection: ["mental status", "cranial nerves", "motor system", "sensory system", :reflexes, "cerebellar function", :gait] %>
   </div>
 
   <div class="form-actions">
